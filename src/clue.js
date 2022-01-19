@@ -154,15 +154,19 @@ function pickMystery() {
 
 // ITERATION 3
 
-function revealMystery(mystery) {
-  return `${mystery.suspect.firstName} ${mystery.suspect.lastName} killed Mr. Boddy using the ${mystery.weapon.name} in the ${mystery.room.name}!`
-  
+
+ function revealMystery() {
+  let weapons = weaponsArray[Math.floor(Math.random()*weaponsArray.length)]
+  let rooms =  roomsArray[Math.floor(Math.random()*roomsArray.length)]
+  let suspects =  suspectsArray[Math.floor(Math.random()*suspectsArray.length)]
+    
+ return {suspects,rooms,weapons}
   }
+ let mystery = revealMystery() 
+ 
+ console.log(`${mystery.suspects.firstName} ${mystery.suspects.lastName} killed Mr. Boddy using the ${mystery.weapons.name} in the ${mystery.rooms.name}`);
 
-
-
-
-// The following is required to make unit tests work.
+ // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
   module.exports = {
